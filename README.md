@@ -168,22 +168,30 @@ For clarity purposes I assigned _null_ value to the _currentOperations_ variable
 ##### **Number buttons**
 
 ```
+const maxLength = 15;
+```
+
+```
 numbBtns.forEach((button) => {
   button.addEventListener(`click`, () => {
-    let number = button.textContent;
-    currentNumber += number;
-    screen.textContent = currentNumber;
+    if (currentNumber.length < maxLength) {
+      let number = button.textContent;
+      currentNumber += number;
+      screen.textContent = currentNumber;
+    }
   });
 });
 ```
 
 ###### Line by line
 
+0. To prevent overflow the maximum number of characters is limited
 1. calling _.forEach()_ method to be able to set the _eventListener_ to all buttons
 2. adding the _eventListener_ and opening the _callback_ function
-3. Assigning the _text value_ of each buttons to a variable called _number_
-4. This _number_ is assigned as value of the _currentNumber_. Using _+=_ I ensure that the number value will not only be assigned, but also concatenated if more than one characters are building up a longer number (_concatenation_).
-5. The entered number appears on the _screen_ of the calculator
+3. If the length of the entered characters is smaller than the pre-set maximum length, the calculator will...
+4. ...assign the _text value_ of each buttons to a variable called _number_
+5. This _number_ is assigned as value of the _currentNumber_. Using _+=_ I ensure that the number value will not only be assigned, but also concatenated if more than one characters are building up a longer number (_concatenation_).
+6. The entered number appears on the _screen_ of the calculator
 
 ##### **Operation buttons**
 
@@ -234,6 +242,10 @@ This is the time for converting the currentNumber and previousNumber values (str
 
 _Piece by piece..._
 
+0. Setting the maximum length of the result to prevent overflow
+   ```
+   const maxResultLength = 15;
+   ```
 1. Adding _eventListener_ and opening the _callback_ function
 2. The first _if()_ statement will display and _error message_ on the screen of the calculator, also, a pop-up alert on the _window_ if the User
 
@@ -301,12 +313,21 @@ and _currentOperation_ variables are set to default.
     result = numb1 * (numb2 / 100);
   }
 
+
+  result = result.toString();
+  if (result.length > maxResultLength) {
+    result = result.slice(0, maxResultLength);
+  }
+
   screen.textContent = result;
   currentNumber = result;
   previousNumber = ``;
   currentOperation = null;
 });
+
 ```
+
+Using _.toString()_ method I convert the result intro string format, which step will enable me to compare the _length_ of the result to the pre-set _maxResultLength_. If the length of the _result_ is greater than the _maxResultLength_ using _.slice()_ method I eliminate the the characters coming after the maximum set number. COnverting the values is necessary, as _.length()_ can be used only on _strings_ and _arrays._
 
 ##### **Backspace button**
 

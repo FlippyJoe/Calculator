@@ -36,11 +36,15 @@ let currentOperation = null;
 
 // Adding functionality
 // Number buttons
+const maxLength = 15; // Set the maximum number of characters
+
 numbBtns.forEach((button) => {
   button.addEventListener(`click`, () => {
-    let number = button.textContent;
-    currentNumber += number;
-    screen.textContent = currentNumber;
+    if (currentNumber.length < maxLength) {
+      let number = button.textContent;
+      currentNumber += number;
+      screen.textContent = currentNumber;
+    }
   });
 });
 
@@ -70,6 +74,10 @@ clearDisplay.addEventListener(`click`, () => {
 });
 
 // Equal button
+
+// Setting maximum length of result
+const maxResultLength = 15;
+
 equalBtn.addEventListener(`click`, () => {
   if (
     currentNumber === `` ||
@@ -108,6 +116,12 @@ equalBtn.addEventListener(`click`, () => {
     result = numb1 + numb2;
   } else if (currentOperation === `%`) {
     result = numb1 * (numb2 / 100);
+  }
+
+  // Convert result to string and truncate if needed
+  result = result.toString();
+  if (result.length > maxResultLength) {
+    result = result.slice(0, maxResultLength);
   }
 
   screen.textContent = result;
@@ -167,9 +181,3 @@ offBtn.addEventListener(`click`, () => {
   currentOperation = null;
   turnMeOn.style.display = `block`;
 });
-
-// Setting the max length of display items on the screen of the calculator
-
-if (screen.textContent.length() >= 10) {
-  screen.textContent = screen.textContent.slice(0, -5);
-}

@@ -63,6 +63,8 @@ body {
   padding: 0 10px 0 5px;
 
   transition: 0.4s;
+
+  overflow: hidden;
 }
 
 .turnMeOn {

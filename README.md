@@ -393,3 +393,9 @@ offBtn.addEventListener(`click`, () => {
   turnMeOn.style.display = `block`;
 });
 ```
+
+### Possible future improvements on the project
+
+- Enabling Users to enter characters using keyboard
+- Instead of limiting the length of characters and/or length of result -> enabling multi-line character entry and multi-line result on display
+- I`m open for suggestions... :)

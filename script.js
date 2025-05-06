@@ -123,7 +123,7 @@ backSpace.addEventListener(`click`, () => {
 });
 
 // On- Off buttons
-/* Both buttons will clear the display and number values entered. Doing so the calculator will behave like it was really off, even if someone is interacting with the buttons while it`s sleeping. The same happens when you switch it off: it will erease all the entered numbers/operations.  */
+
 /* On button */
 onBtn.addEventListener(`click`, () => {
   offBtn.style.display = `flex`;
@@ -167,3 +167,9 @@ offBtn.addEventListener(`click`, () => {
   currentOperation = null;
   turnMeOn.style.display = `block`;
 });
+
+// Setting the max length of display items on the screen of the calculator
+
+if (screen.textContent.length() >= 10) {
+  screen.textContent = screen.textContent.slice(0, -5);
+}

@@ -236,7 +236,7 @@ It sets all variables back to their initial stage
 ##### **Equal button**
 
 The equal button may bring to the attention the cause of an error, or, the result of the calculation.
-Possible reasons for error are listed above.
+Possible reasons for error are listed below.
 
 This is the time for converting the currentNumber and previousNumber values (string) into numbers for succesful calculation. The converted value will be assigned to new variables that will be used only in this function.
 
@@ -394,8 +394,31 @@ offBtn.addEventListener(`click`, () => {
 });
 ```
 
-### Possible future improvements on the project
+## Possible future improvements on the project
 
 - Enabling Users to enter characters using keyboard
 - Instead of limiting the length of characters and/or length of result -> enabling multi-line character entry and multi-line result on display
 - I`m open for suggestions... :)
+
+## Obstacles I ran into and sources I used for getting through **them**
+
+### HTML
+
+- It was quiet smooth, yet I had to play around with the order of the buttons to ensure the separation between function/ operation buttons and number buttons.
+- _Minus_ sign gave me a bit of headache as it looks like a dot. I decided to double it for better visibility
+
+### CSS
+
+- No issues, it was pretty ok
+
+### JavaScript
+
+- **Type issues:** at first I declared the _currentNumber_ and _previousNumber_ variables as numbers. Result: I was unable to enter numbers that`s length is grater than one. After a few trial- error I realized the mistake and corrected it.
+- **Backspace button functionality:** It took some time to realize that I need to use _.slice()_ method. Yep, I had to go back to the corresponding part of my course _(Traversy Media)_ for refreshing my dusty slicing skills.
+- Plan ahead Plan ahead Plan ahead Plan ahead Plan ahead
+
+## Overall experience
+
+It took long, should have been a couple of hours. Despite I am pretty ok at planning ahead my CSS and HTML, I simply skipped this part when the time arrived to touch JavaScript. Many times I had to go back and start over just because I did not declare an element, or, declared it incorrectly. Somehow I saw the start- and end points of the project but did not see through the way to connect those two. With adequate planning I could have avoided plenty unnecessary steps, headaches and delays. I guess that is what you meant by **Programming Logic**. Overall, it was a fun and great experience to figure out my weak(est) points still in early stage of JavaScript.
+
+Thanks Anton!
